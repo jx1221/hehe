@@ -1,5 +1,6 @@
 var box = document.querySelector('.box');
 
+
 box.addEventListener('mousedown',down);
 function down(event){
 
@@ -11,7 +12,11 @@ function down(event){
 		box.style.top = event.clientY -disY + 'px';
 	}
 	
-
+	document.addEventListener('mouseup',up);
+	function up(){
+		document.removeEventListener('mousemove',move);
+		document.removeEventListener('mouseup',up);
+	}
 }
 
 
